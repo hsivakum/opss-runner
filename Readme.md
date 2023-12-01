@@ -11,14 +11,14 @@
     * Both private and public repositories can be configured in this UI
     * For public repository we don't have to configure any personal access token.
     * For private repository user has to create a personal token in the respective SCM to schedule the scan
-2. [Scan migrate](https://github.com/hsivakum/scan-service) -
+2. [Scan migrate](https://github.com/hsivakum/scan-service) - [![scan-service](https://github.com/hsivakum/scan-service/actions/workflows/ci.yml/badge.svg)](https://github.com/hsivakum/scan-service/actions/workflows/ci.yml)
     * a db migration docker image to create necessary database tables in the given target db connection
-3. [Scan service](https://github.com/hsivakum/scan-service) - 
+3. [Scan service](https://github.com/hsivakum/scan-service) - [![scan-service](https://github.com/hsivakum/scan-service/actions/workflows/ci.yml/badge.svg)](https://github.com/hsivakum/scan-service/actions/workflows/ci.yml)
     * A simple microservice written in go programming language
     * this service will expose a REST endpoint /api/v1/scan, and when frontend hits this endpoint scan will be inserted
       into the scan_requests table
     * after inserting the record, scan-service will push the data into the a kafka queue topic named scan-requested.
-4. [Scan queue processor](https://github.com/hsivakum/scan-queue-processor) - 
+4. [Scan queue processor](https://github.com/hsivakum/scan-queue-processor) - [![scan-queue-processor](https://github.com/hsivakum/scan-queue-processor/actions/workflows/ci.yml/badge.svg)](https://github.com/hsivakum/scan-queue-processor/actions/workflows/ci.yml)
     * A simple microservice written in golang
     * this service will start consuming the data from the kafka queue topic scan-requested
     * once it consumes the data, it will make call to the github REST API to find the requested repo metadata such as
@@ -28,14 +28,14 @@
     * after making resource allocation in the kubernetes truffle-scanner will scan the repo detailed provided in the POD
       env variables.
     * Change the status in the database from queued to processed
-5. [Truffle scanner](https://github.com/hsivakum/truffle-scanner) - 
+5. [Truffle scanner](https://github.com/hsivakum/truffle-scanner) - [![truffle-scanner](https://github.com/hsivakum/truffle-scanner/actions/workflows/ci.yml/badge.svg)](https://github.com/hsivakum/truffle-scanner/actions/workflows/ci.yml)
     * A simple go microservices written in golang
     * consume required details from environment variables.
     * if the repo is private then using git cli tool, it will clone the repo in certain directory and run the trufflehog
       executable to scan the cloned reop.
     * if public it will use the git schema runner from trufflehog
     * once the scan is complete, prase the output and writes and output to the database by batch.
-6. [github-ss-etl](https://github.com/hsivakum/github-ss-etl) -
+6. [github-ss-etl](https://github.com/hsivakum/github-ss-etl) - 
     * A simple go tool written in golang
     * uses github go sdk to pull secret scanning data from given repository
 
