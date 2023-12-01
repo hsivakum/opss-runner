@@ -1,4 +1,4 @@
-# Welcome to scan queue processor
+# Welcome to open source secret scanner
 
 ## How to run the entire application
 
