@@ -71,3 +71,6 @@ Pre Requisites:
 12. run the below command to see the pods running in the kubernetes which will automatically clone the repo, run the
     scan and upload the results to db.
     * ```kubectl -n truffle-scanner get pods```
+
+**Note: If some of the above process looks complicated to run, ask the repo owner for their credentials and cloud specifications for demo purpose**
+
