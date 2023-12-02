@@ -1,6 +1,15 @@
 # Welcome to open source secret scanner
 
+## This project is intended to capture the improvement of modified trufflehog secrets scanner comparing opensource trufflehog and github secret scanner.
+
+[Demo.mov](Demo.mov)
 ## How to run the entire application
+
+1. Run the jupyter notebook to find the improvement comparison between 3 scanners
+   * The datasets are present in the project directory, try to run the jupyter notebook to find the improvements.
+
+-----------------------------------------------------------------------------------------------------------------------
+## How to run the data collection infrastructure: use below commands
 
 **This application consists of 5 different modules.**
 
